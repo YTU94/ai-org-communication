@@ -1,12 +1,12 @@
 import type { NextAuthOptions } from "next-auth"
-import Credentials from "next-auth/providers/credentials"
 import { db } from "./db"
 
 export const authOptions: NextAuthOptions = {
   providers: [
-    Credentials({
+    {
       id: "credentials",
-      name: "credentials",
+      name: "Credentials",
+      type: "credentials",
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
@@ -55,7 +55,7 @@ export const authOptions: NextAuthOptions = {
           }
         }
       },
-    }),
+    },
   ],
   session: {
     strategy: "jwt",
